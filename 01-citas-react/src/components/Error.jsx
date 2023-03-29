@@ -1,10 +1,14 @@
-import { useState, useEffect } from "react"
+import React from 'react'
 
-const Error = ({children}) => {
+const Error = ({ children }) => {
   return (
-    <div className="bg-red-800 text-white font-bold uppercase text-center p-3 rounded mb-3">
-    <p>{children}</p>
-  </div>
+    <div>
+      
+        <div className='bg-red-800 text-white text-center p-3 uppercase font-bold mb-3 rounded'>
+          <p>{ children }</p>
+        </div>
+        
+    </div>
   )
 }
 
