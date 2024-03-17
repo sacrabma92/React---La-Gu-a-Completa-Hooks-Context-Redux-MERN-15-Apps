@@ -1,8 +1,5 @@
-# React + Vite
+# Proyecto de tienda de guitarras
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Links: https://65f75c86a4d565d4216a2ca5--lustrous-froyo-be6c02.netlify.app/
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Proyecto que usa Hooks y props y local storate
