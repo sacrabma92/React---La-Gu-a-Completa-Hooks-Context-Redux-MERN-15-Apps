@@ -11,4 +11,4 @@ Disminuye la cantidad a comprar.
 Suma el valor de las compras.
 Guarda en localstorage el carrito de compras.
 
-<img src="../imgs/01.png">
+<img src="../imgs/01.PNG">
