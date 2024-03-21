@@ -1,6 +1,9 @@
-# App Muy Basica
+# Yarn + Vite
 
-Para aprender el funcionamiento del useState las carpetas que conforman React.
+Proyecto creado con Yarn + Vite
+
+Para aprender el funcionamiento del useState.
+Carpetas que conforman React.
 Creación de componentes, pasar parametros por compenentes.
 
 <img src="../imgs/counter-app.PNG">
