@@ -5,7 +5,9 @@ describe('Pruebas en <FirstApp />', () => {
   test('debe hacer match con el snapshot', () => {
 
     const title = 'Hola, Soy Goku';
-    render(<FirstApp title={title} />)
+    const { container } = render(<FirstApp title={title} />)
+
+    expect(container).toMatchSnapshot()
 
   })
 
