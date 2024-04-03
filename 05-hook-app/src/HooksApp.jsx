@@ -1,5 +1,5 @@
 
-import { SimpleForm } from "./02-useEffect/SimpleForm"
+import { MultipleCustomHook } from "./03-examples/MultipleCustomHook"
 
 
 export const HooksApp = () => {
@@ -10,7 +10,8 @@ export const HooksApp = () => {
       <hr />
       {/* <CounterApp /> */}
       {/* <CounterWithCustomHook /> */}
-      <SimpleForm />
+      {/* <FormWithCustomHook /> */}
+      <MultipleCustomHook />
       <hr />
     </div>
   )
