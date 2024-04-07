@@ -1,4 +1,4 @@
-import { CallbackHook } from "./06-memos/CallbackHook"
+import { TodoApp } from "./08-useReducer/TodoApp"
 
 export const HooksApp = () => {
   return (
@@ -15,7 +15,8 @@ export const HooksApp = () => {
       {/* <Memorize /> */}
       {/* <MemoHook /> */}
       {/* <CallbackHook /> */}
-      <CallbackHook />
+      {/* <CallbackHook /> */}
+      <TodoApp />
       <hr />
     </div>
   )
