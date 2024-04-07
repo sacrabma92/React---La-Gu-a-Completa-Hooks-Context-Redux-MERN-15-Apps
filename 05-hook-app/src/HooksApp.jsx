@@ -1,6 +1,4 @@
-
-import { MultipleCustomHook } from "./03-examples/MultipleCustomHook"
-
+import { CallbackHook } from "./06-memos/CallbackHook"
 
 export const HooksApp = () => {
   return (
@@ -11,7 +9,13 @@ export const HooksApp = () => {
       {/* <CounterApp /> */}
       {/* <CounterWithCustomHook /> */}
       {/* <FormWithCustomHook /> */}
-      <MultipleCustomHook />
+      {/* <MultipleCustomHook /> */}
+      {/* <FocusScreen /> */}
+      {/* <Layout /> */}
+      {/* <Memorize /> */}
+      {/* <MemoHook /> */}
+      {/* <CallbackHook /> */}
+      <CallbackHook />
       <hr />
     </div>
   )
