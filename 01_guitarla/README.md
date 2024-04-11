@@ -1,8 +1,7 @@
-# React + Vite
+# React + Vite GuitarLA
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación en React de carrito de compras, se uso el useState, useMemo, LocalStorage y JSX eliminar elementos, añadir guitarras eliminar y vaciar el carrito de compras.
 
-Currently, two official plugins are available:
+Link: https://lustrous-froyo-be6c02.netlify.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<img src="../imgs/01.png">
