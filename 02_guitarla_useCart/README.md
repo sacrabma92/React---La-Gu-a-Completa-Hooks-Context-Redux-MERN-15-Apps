@@ -6,4 +6,4 @@ En esta ocaci√≥n se creo un CustomHook para mover toda la logica de la aplicaci√
 
 Link: https://lustrous-froyo-be6c02.netlify.app/
 
-<img src="../imgs/02.png">
+<img src="../imgs/02.PNG">
