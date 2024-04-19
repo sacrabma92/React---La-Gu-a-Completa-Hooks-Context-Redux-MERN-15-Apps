@@ -1,12 +1,13 @@
 import type { MenuItem } from "../types"
 
 type MenuItemProps = {
-  item: MenuItem
+  item: MenuItem,
+  addItem: (item: MenuItem) => void
 }
 
-export default function MenuItem({ item }: MenuItemProps) {
+export default function MenuItem({ item, addItem }: MenuItemProps) {
   return (
-    <button className="border-2 border-sky-600 hover:bg-sky-400 w-full p-3 flex justify-between rounded-md">
+    <button onClick={()=> addItem(item)} className="border-2 border-sky-600 hover:bg-sky-400 w-full p-3 flex justify-between rounded-md">
       <div className="flex items-center">
         <div className="w-6">
           {item.name.includes('Pizza') ? (
