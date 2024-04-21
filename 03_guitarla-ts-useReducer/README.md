@@ -8,4 +8,4 @@ Se paso el codigo a TypeScript para hacer uso de los Tipos.
 
 Link: https://lustrous-froyo-be6c02.netlify.app/
 
-<img src="../imgs/03.PNG">
+<img src="../imgs/06.png">
