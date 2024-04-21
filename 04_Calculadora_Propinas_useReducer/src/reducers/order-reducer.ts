@@ -41,7 +41,6 @@ export type OrderState = {
 
     if(action.type === 'remove-item'){
       const order = state.order.filter(item => item.id !== action.payload.id)
-      console.log(action.payload.id)
       return{
         ...state,
         order
