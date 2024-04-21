@@ -14,7 +14,7 @@ https://github.com/sacrabma92/React-Projects/tree/main/05-Calorie-Tracker
 <img src="./imgs/05.PNG">
 
 https://github.com/sacrabma92/React-Projects/tree/main/03_guitarla-ts-useReducer
-<img src="./imgs/06.PNG">
+<img src="./imgs/06.png">
 
 https://github.com/sacrabma92/React-Projects/tree/main/04_Calculadora_Propinas_useReducer
 <img src="./imgs/07.PNG">
