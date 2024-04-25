@@ -1,5 +1,5 @@
 
-import { useMemo } from "react"
+import { useEffect, useMemo } from "react"
 import BuggetForm from "./components/BuggetForm"
 import { useBudget } from "./hooks/useBudget"
 import BudgetTracker from "./components/BudgetTracker"
@@ -11,6 +11,12 @@ function App() {
 
   const { state } = useBudget()
   const isValidBudget = useMemo(() => state.budget > 0, [state.budget])
+
+  useEffect(() => {
+    localStorage.setItem('budget', state.budget.toString())
+    localStorage.setItem('expense', JSON.stringify(state.expenses))
+  }, [state])
+  
 
   return (
     <>

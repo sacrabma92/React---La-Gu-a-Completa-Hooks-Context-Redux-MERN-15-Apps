@@ -2,7 +2,7 @@ import { categories } from "../data/categories";
 import DatePicker from 'react-date-picker';
 import 'react-date-picker/dist/DatePicker.css';
 import 'react-calendar/dist/Calendar.css';
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { DrafExpense, Value } from "../types";
 import ErrorMessage from "./ErrorMessage";
 import { useBudget } from "../hooks/useBudget";
@@ -18,8 +18,17 @@ export default function ExpenseForm() {
     date: new Date()
   })
   const [error, setError] = useState('')
+  const [previousAmount, setPreviousAmount] = useState(0)
+  const { dispatch, state, remainingBudget } = useBudget()
 
-  const { dispatch } = useBudget()
+  useEffect(() => {
+    if (state.editingId) {
+      const editingExpense = state.expenses.filter(currentExpense => currentExpense.id === state.editingId)[0]
+      setExpense(editingExpense)
+      setPreviousAmount(editingExpense.amount)
+    }
+  }, [state.editingId])
+
 
   const handleChange = (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
     const { name, value } = e.target
@@ -46,8 +55,18 @@ export default function ExpenseForm() {
       return
     }
 
-    // Agregar un nuevo gasto
-    dispatch({ type: 'add-expense', payload: { expense } })
+    // Validar de no pasar el limnite del presupuesto
+    if ((expense.amount - previousAmount) > remainingBudget) {
+      setError('No tienes suficiente presupuesto')
+      return
+    }
+
+    // Agregar o actualizar nuevo gasto
+    if (state.editingId) {
+      dispatch({ type: 'update-expense', payload: { expense: { id: state.editingId, ...expense } } })
+    } else {
+      dispatch({ type: 'add-expense', payload: { expense } })
+    }
 
     // Reiniciar el State
     setExpense({
@@ -56,11 +75,12 @@ export default function ExpenseForm() {
       category: '',
       date: new Date()
     })
+    setPreviousAmount(0)
   }
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
-      <legend className="uppercase text-center text-2xl font-black border-b-4 border-orange-600 py-2">Nuevo Gasto</legend>
+      <legend className="uppercase text-center text-2xl font-black border-b-4 border-orange-600 py-2">{state.editingId ? 'Guardar Cambios' : 'Nuevo Gasto'}</legend>
 
       {error && <ErrorMessage>{error}</ErrorMessage>}
 
@@ -107,7 +127,7 @@ export default function ExpenseForm() {
       <input
         type="submit"
         className="bg-orange-600 cursor-pointer w-full p-2 text-white uppercase font-bold rounded-lg"
-        value={'Registrar gasto'}
+        value={state.editingId ? 'Guardar Cambios' : 'Nuevo Gasto'}
       />
     </form>
   )

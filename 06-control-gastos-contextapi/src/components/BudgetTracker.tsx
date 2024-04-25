@@ -1,7 +1,11 @@
+import { useBudget } from "../hooks/useBudget";
 import AmountDisplay from "./AmountDisplay";
 
 
 export default function BudgetTracker() {
+
+  const { state, totalExpenses, remainingBudget } = useBudget()
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
       <div className="flex justify-center">
@@ -9,23 +13,23 @@ export default function BudgetTracker() {
       </div>
 
       <div className="flex flex-col justify-center items-center gap-8">
-        <button type="button" className="bg-red-600 w-full p-2 text-white uppercase font-bold rounded-lg ">
+        <button type="button" className="bg-orange-400 w-full p-2 text-white uppercase font-bold rounded-lg ">
           Reset App
         </button>
 
         <AmountDisplay
           label="Presupuesto"
-          amount={200}
+          amount={state.budget}
         />
 
         <AmountDisplay
           label="Disponible"
-          amount={500}
+          amount={remainingBudget}
         />
 
         <AmountDisplay
           label="Gastado"
-          amount={100}
+          amount={totalExpenses}
         />
 
       </div>
