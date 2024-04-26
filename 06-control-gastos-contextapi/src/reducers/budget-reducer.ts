@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid'
 
-import { DrafExpense, Expense } from "../types"
+import { Category, DrafExpense, Expense } from "../types"
 
 export type BudgetActions =
   { type: 'add-budget', payload: { budget: number } } |
@@ -9,7 +9,9 @@ export type BudgetActions =
   { type: 'add-expense', payload: { expense: DrafExpense } } |
   { type: 'remove-expense', payload: { id: Expense['id'] } }  |
   { type: 'get-expense-by-id', payload: { id: Expense['id'] } } |
-  { type: 'update-expense', payload: { expense: Expense } }
+  { type: 'update-expense', payload: { expense: Expense } } | 
+  { type: 'reset-app' } |
+  { type: 'add-filter-category', payload: {id: Category['id']} } 
 
 
 export type BudgetSate = {
@@ -17,6 +19,7 @@ export type BudgetSate = {
   modal: boolean
   expenses: Expense[]
   editingId: Expense['id']
+  currentCategory: Category['id']
 }
 
 const initialBudget = () : number => {
@@ -25,15 +28,16 @@ const initialBudget = () : number => {
 }
 
 const localStorageExpense = () : Expense[] => {
-  const localStorageExpense = localStorage.getItem('expenses')
-  return localStorageExpense ? JSON.parse(localStorageExpense) : []
+  const localStorageExpenses = localStorage.getItem('expenses')
+  return localStorageExpenses ? JSON.parse(localStorageExpenses) : []
 }
 
 export const initialState: BudgetSate = {
   budget: initialBudget(),
   modal: false,
   expenses: localStorageExpense(),
-  editingId: ''
+  editingId: '',
+  currentCategory: ''
 }
 
 const createExpense = ( draftExpense: DrafExpense) : Expense => {
@@ -102,6 +106,21 @@ export const budgetReducer = (
       expenses: state.expenses.map(expense => expense.id === action.payload.expense.id ? action.payload.expense :  expense ),
       modal: false,
       editingId: ''
+    }
+  }
+
+  if(action.type === 'reset-app'){
+    return {
+      ...state,
+      budget: 0,
+      expenses: []
+    }
+  }
+
+  if(action.type === 'add-filter-category'){
+    return {
+      ...state,
+      currentCategory: action.payload.id
     }
   }
 
