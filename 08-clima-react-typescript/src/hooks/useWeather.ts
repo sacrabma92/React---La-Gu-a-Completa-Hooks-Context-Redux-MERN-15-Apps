@@ -1,5 +1,6 @@
 import axios from 'axios'
-import { z } from 'zod'
+// import { z } from 'zod'
+import { object, string, number, Output, parse} from 'Valibot'
 import { SearchType } from '../types'
 
 // Definir el Type Guards
@@ -23,8 +24,19 @@ import { SearchType } from '../types'
 //     temp_max: z.number()
 //   })
 // })
+// type Weather = z.infer<typeof Weather>
 
-type Weather = z.infer<typeof Weather>
+// Valibot
+const WeaterSchema = object({
+  name: string(),
+  main: object({
+    temp: number(),
+    temp_max: number(),
+    temp_min: number()
+  })
+})
+type Weather = Output<typeof WeaterSchema>
+
 
 
 export default function useWeather() {
@@ -62,6 +74,13 @@ export default function useWeather() {
       //   console.log(result.data.name)
       //   console.log(result.data.main.temp)
       // }
+
+      // Validar con Valibot
+      const { data: weatherResult } = await axios(weatherUrl)
+      const result = parse(WeaterSchema, weatherResult)
+      if(result){
+        console.log(result.name)
+      }
 
     } catch (error) {
       console.log(error)
