@@ -12,7 +12,7 @@ export default function PatientsDetails({ patient }: PatietnsDetailsProps) {
   const getPatientById = usePatientSotre((state) => state.getPatientById)
 
   return (
-    <div className="mx-5 my-10 px-5 py-10 bg-white shadow-md rounded-xl">
+    <div className="mx-5 my-10 px-5  py-10 bg-white shadow-md rounded-xl">
       <PatientDetailItem label='ID' data={patient.id} />
       <PatientDetailItem label='Nombre' data={patient.name} />
       <PatientDetailItem label='Propietario' data={patient.caretaker} />
@@ -20,7 +20,7 @@ export default function PatientsDetails({ patient }: PatietnsDetailsProps) {
       <PatientDetailItem label='Fecha Alta' data={patient.fecha.toString()} />
       <PatientDetailItem label='Sintomas' data={patient.symptoms} />
 
-      <div className="flex justify-between mt-10">
+      <div className="flex flex-col lg:flex-row gap-3 justify-between mt-10">
         <button
           type="button"
           className="py-2 px-10 bg-purple-600 hover:bg-purple-700 text-white font-bold uppercase rounded-lg"
