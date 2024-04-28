@@ -46,10 +46,11 @@ export default function Form({fetchWeather}:FormProps) {
         <select name="country" id="country" value={search.country} onChange={handleChange}>
           <option value="">--Seleccione un País--</option>
           {countries.map(country => (
-            <option key={country.code}>{country.name}</option>
+            <option key={country.code} value={country.code}>{country.name}</option>
           ))}
         </select>
       </div>
+      
       <input className={styles.submit} type="submit" value="Consultar Clima" />
     </form>
   )
