@@ -18,7 +18,7 @@ export default function App() {
 
         { loading && <Spinner />}
         { hasWeatherData && <WeatherDetail weather={weather}/> } 
-        { notFound && <Alert>Ciudad no encontrada</Alert>}
+        { notFound && <Alert>Ciudad no encontrada</Alert >}
       </div>
     </div>
   )
