@@ -19,5 +19,4 @@ Se paso la información con useState.
 Al momento de montar el proyecto toca configurar la variable de entorno en el servidor.
 
 Link: https://662ec606d291c324ecab471d--dainty-brigadeiros-bed1bd.netlify.app/
-
 <img src="../imgs/11.PNG">
