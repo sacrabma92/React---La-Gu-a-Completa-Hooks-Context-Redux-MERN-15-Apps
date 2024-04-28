@@ -2,7 +2,7 @@ import axios from 'axios'
 import { z } from 'zod'
 // import { object, string, number, Output, parse} from 'Valibot'
 import { SearchType } from '../types'
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 
 // Definir el Type Guards
 // function isWeatherResponse(weather: unknown): weather is Weather{
@@ -43,8 +43,8 @@ export type Weather = z.infer<typeof Weather>
 export default function useWeather() {
 
   const [weather, setWeather] = useState<Weather>({
-    name:'',
-    main:{
+    name: '',
+    main: {
       temp: 0,
       temp_min: 0,
       temp_max: 0
@@ -96,8 +96,12 @@ export default function useWeather() {
       console.log(error)
     }
   }
+
+  const hasWeatherData = useMemo(() => weather.name  ,[weather])
+
   return {
     weather,
-    fetchWeather
+    fetchWeather,
+    hasWeatherData
   }
 }

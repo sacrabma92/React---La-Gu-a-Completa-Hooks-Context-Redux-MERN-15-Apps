@@ -4,7 +4,7 @@ import WeatherDetail from "./components/WeatherDetail/WeatherDetail"
 import useWeather from "./hooks/useWeather"
 
 export default function App() {
-  const { weather, fetchWeather } = useWeather()
+  const { weather, fetchWeather, hasWeatherData } = useWeather()
   return (
     <div>
       <h1 className={styles.title}>Buscador de Clima</h1>
@@ -14,9 +14,8 @@ export default function App() {
           fetchWeather={fetchWeather}
         />
 
-        <WeatherDetail
-          weather={weather}
-        />
+
+        { hasWeatherData && <WeatherDetail weather={weather}/> } 
       </div>
     </div>
   )
