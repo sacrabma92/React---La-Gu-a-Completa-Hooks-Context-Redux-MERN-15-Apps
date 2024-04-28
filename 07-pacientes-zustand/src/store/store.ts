@@ -9,13 +9,14 @@ type PatientState = {
   addPatient: (data: DraftPatient) => void
   deletePatient: (id: Patient['id']) => void
   getPatientById: (id: Patient['id']) => void
+  updatePatient: (data: DraftPatient) => void
 }
 
 const createPatient = (patient: DraftPatient): Patient => {
   return { ...patient, id: uuid4() }
 }
 
-export const usePatientSotre = create<PatientState>() (devtools((set) => ({
+export const usePatientSotre = create<PatientState>()(devtools((set) => ({
   patients: [],
   activeId: '',
   addPatient: (data) => {
@@ -33,5 +34,12 @@ export const usePatientSotre = create<PatientState>() (devtools((set) => ({
     set(() => ({
       activeId: id
     }))
+  },
+  updatePatient: (data) => {
+    set((state) => ({
+      patients: state.patients.map(patient => patient.id === state.activeId ? { id: patient.id, ...data } : patient),
+      activeId: ''
+    }))
   }
-})))
+})
+))
