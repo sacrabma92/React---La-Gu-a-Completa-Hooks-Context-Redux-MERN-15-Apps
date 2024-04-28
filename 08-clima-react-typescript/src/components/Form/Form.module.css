@@ -16,6 +16,16 @@
   border-radius: 1rem;
 }
 
+.form input[type="text"]:focus,
+.form select:focus {
+  background-color: transparent;
+}
+
+.form select:focus,
+.form select option:checked {
+  color: black;
+}
+
 .field ::placeholder{
   color: var(--white);
 }
@@ -30,3 +40,4 @@
   cursor: pointer;
   padding: 1rem;
 }
+
