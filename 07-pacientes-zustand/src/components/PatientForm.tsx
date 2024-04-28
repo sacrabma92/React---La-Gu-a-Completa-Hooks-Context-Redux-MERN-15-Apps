@@ -7,6 +7,7 @@ export default function PatientForm() {
 
 	// const { addPatient } = usePatientSotre()
 	const addPatient = usePatientSotre(state => state.addPatient)
+
 	const { register, handleSubmit, formState: { errors }, reset } = useForm<DraftPatient>()
 
 	const registerPatient = (data: DraftPatient) => {

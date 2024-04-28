@@ -9,6 +9,7 @@ type PatietnsDetailsProps = {
 export default function PatientsDetails({ patient }: PatietnsDetailsProps) {
 
   const deletePatient = usePatientSotre((state) => state.deletePatient)
+  const getPatientById = usePatientSotre((state) => state.getPatientById)
 
   return (
     <div className="mx-5 my-10 px-5 py-10 bg-white shadow-md rounded-xl">
@@ -22,7 +23,9 @@ export default function PatientsDetails({ patient }: PatietnsDetailsProps) {
       <div className="flex justify-between mt-10">
         <button
           type="button"
-          className="py-2 px-10 bg-purple-600 hover:bg-purple-700 text-white font-bold uppercase rounded-lg">
+          className="py-2 px-10 bg-purple-600 hover:bg-purple-700 text-white font-bold uppercase rounded-lg"
+          onClick={() => getPatientById(patient.id)}
+          >
           Editar
         </button>
         <button
