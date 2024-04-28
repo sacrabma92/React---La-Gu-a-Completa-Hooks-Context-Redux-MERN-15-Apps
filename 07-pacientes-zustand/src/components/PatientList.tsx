@@ -3,7 +3,7 @@ import PatientsDetails from "./PatientsDetails"
 
 export default function PatientList() {
 
-  const patients = usePatientSotre((state) => state.patienets)
+  const patients = usePatientSotre((state) => state.patients)
 
   return (
     <div className="md:w-1/2 lg:3/5 md:h-screen overflow-y-scroll">
