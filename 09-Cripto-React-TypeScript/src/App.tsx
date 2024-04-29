@@ -1,3 +1,4 @@
+import CriptoSearchForm from "./components/CriptoSearchForm";
 
 export default function App() {
   return (
@@ -8,7 +9,7 @@ export default function App() {
         </h1>
 
         <div className="content">
-
+          <CriptoSearchForm />
         </div>
       </div>
     </>
