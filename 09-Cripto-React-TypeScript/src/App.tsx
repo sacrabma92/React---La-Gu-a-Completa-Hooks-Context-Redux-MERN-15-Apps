@@ -1,8 +1,16 @@
 
 export default function App() {
   return (
-    <div>
-      <h1>Cripto App</h1>
-    </div>
+    <>
+      <div className="container">
+        <h1 className="app-title">
+          Cotizador de <span>Criptomonedas</span>
+        </h1>
+
+        <div className="content">
+
+        </div>
+      </div>
+    </>
   )
 }
