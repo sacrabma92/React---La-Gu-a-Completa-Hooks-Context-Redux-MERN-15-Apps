@@ -1,10 +1,10 @@
 import axios from "axios";
 import { create } from "zustand";
 import { CryptoCurrencyReponseSchema } from "./schema/crypto-schema";
-import { CryptoCurrency } from "./types";
+import { CryptoCurrencies } from "./types";
 
 type CryptoStore = {
-  cryptocurrencies: CryptoCurrency,
+  cryptocurrencies: CryptoCurrencies,
   fetchCryptos: () => Promise<void>
 }
 
