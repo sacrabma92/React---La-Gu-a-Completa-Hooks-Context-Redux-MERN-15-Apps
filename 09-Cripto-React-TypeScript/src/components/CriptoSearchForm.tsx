@@ -10,7 +10,7 @@ export default function CriptoSearchForm() {
   const cryptocurrencies = useCrypeStore((state) => state.cryptocurrencies)
   const [pair, setPair] = useState<Pair>({
     currency: '',
-    criptoCurrency: ''
+    criptocurrency: ''
   })
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
