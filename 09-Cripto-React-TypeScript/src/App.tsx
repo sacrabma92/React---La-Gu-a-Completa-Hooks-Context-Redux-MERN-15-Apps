@@ -18,6 +18,9 @@ export default function App() {
 
         <div className="content">
           <CriptoSearchForm />
+
+
+          
         </div>
       </div>
     </>
