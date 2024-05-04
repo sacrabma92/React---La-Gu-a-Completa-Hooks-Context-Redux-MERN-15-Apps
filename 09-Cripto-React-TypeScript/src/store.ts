@@ -11,6 +11,8 @@ type CryptoStore = {
   fetchData: (pair: Pair) => Promise<void>
 }
 
+
+
 export const useCrypeStore = create<CryptoStore>()(devtools((set) => ({
   cryptocurrencies: [],
   result: {} as CryptoPrice,
